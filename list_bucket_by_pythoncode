@@ -1,0 +1,15 @@
+# Configure aws credentials with command                         $ aws configure
+# now run command is ($ aws s3 ls) for check is your bucket are showing or not 
+# Install python3 and pip package with this command              $ apt install python3-pip
+# Install boto with pip                                          $ pip install boto3
+# Create file with last name .py                                 $ vim s3list.py
+# Now paste this content in s3list.py file and save & exit
+import boto3
+s3 = boto3.client('s3')
+response = s3.list_buckets()
+   
+for bucket in response['Buckets']:
+    print(bucket["Name"])
+    
+# lastly run this commmand for run this programe                 $ python3 s3list.py
+# you will got your result....
